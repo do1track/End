@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Fetch and Scan</title>
+</head>
+<body>
+    <div class="backpic"></div>
+    <div class="content">
+        <h1>Be aware of Phishing attempts!</h1>
+        <h2>Be a little suspicious and be even MORE VIGILANT.</h2>
+    </div>
+
+    <div class="main">
+        <div class="form">
+            <h2>FETCH AND SCAN!</h2>
+            <form id="emailForm">
+                <input type="email" id="email" name="email" placeholder="Enter Your Email Here" required>
+                <input type="password" id="password" name="password" placeholder="Enter Your App Password Here" required>
+                <input type="email" id="target_email" name="target_email" placeholder="Enter Sender's Email Here" required>
+                <button class="btn" type="submit">Scan</button>
+            </form>
+        </div>
+
+        <div class="form-sender">
+            <h3>Sender's Email</h3>
+            <p>&nbsp;</p>
+            <p><strong id="currentEmail">No email scanned yet</strong></p>
+        </div>
+
+        <div class="form-result">
+            <h3>Scan Results</h3>
+            <ul id="resultsList"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("emailForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let formData = new FormData(this);
+
+            fetch("/", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("currentEmail").innerText = data.target_email;
+                let resultsList = document.getElementById("resultsList");
+                resultsList.innerHTML = "";
+
+                if (data.predictions.length > 0) {
+                    data.predictions.forEach(result => {
+                        let listItem = document.createElement("li");
+                        listItem.innerHTML = result;
+                        resultsList.appendChild(listItem);
+                    });
+                } else {
+                    resultsList.innerHTML = "<p class='no-results'>No emails classified yet.</p>";
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
