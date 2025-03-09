@@ -13,6 +13,34 @@
     background-position: center;
 }
 
+.header {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: flex-start; /* Space between title and nav */
+    padding: 10px; /* Padding around the header */
+    background: linear-gradient(to right, #2b637a, #022445); 
+}
+
+
+
+.nav {
+    display: flex; /* Use flexbox for horizontal navigation */
+}
+
+.nav-link {
+    padding: 10px; /* Padding around each link */
+    color: lightcyan; /* Light text color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 20px;
+}
+
+.nav-link:hover {
+    color: white; /* Change color on hover */
+    background-color: #383939; /* Add background color on hover */
+    border-radius: 5px; /* Slightly round the corners */
+}
+
+
 .content {
     width: 100%;
     position: absolute;
@@ -37,7 +65,7 @@
     width: 350px;
     height: 290px;
     background: linear-gradient(to top, rgba(35, 34, 60, 0.8) 77%, rgba(0, 0, 0, 0.8) 23%);
-    top: 240px;
+    top: 280px;
     position: absolute;
     left: 400px;
     border-radius: 10px;
@@ -91,7 +119,7 @@
     width: 350px;
     height: 50px;
     background: linear-gradient(to top, rgba(35, 34, 60, 0.8) 40%, rgba(0, 0, 0, 0.8) 60%);
-    top: 240px;
+    top: 280px;
     position: absolute;
     left: 810px;
     border-radius: 10px;
@@ -114,7 +142,7 @@
     width: 350px;
     height: 219px;
     background: linear-gradient(to top, rgba(35, 34, 60, 0.8) 81%, rgba(0, 0, 0, 0.8) 19%);
-    top: 330px;
+    top: 370px;
     position: absolute;
     left: 810px;
     border-radius: 10px;

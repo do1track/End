@@ -7,13 +7,20 @@
     <title>Fetch and Scan</title>
 </head>
 <body>
+
+    <div class="header">
+        <nav class="nav">
+            <a class="nav-link" href="/ip">IP Authenticator</a>
+        </nav>
+    </div>
+
     <div class="backpic"></div>
     <div class="content">
         <h1>Be aware of Phishing attempts!</h1>
         <h2>Be a little suspicious and be even MORE VIGILANT.</h2>
     </div>
 
-    <div class="main">
+    
         <div class="form">
             <h2>FETCH AND SCAN!</h2>
             <form id="emailForm">
@@ -34,8 +41,7 @@
             <h3>Scan Results</h3>
             <ul id="resultsList"></ul>
         </div>
-    </div>
-
+     
     <script>
         document.getElementById("emailForm").addEventListener("submit", function(event) {
             event.preventDefault();
@@ -64,6 +70,7 @@
             })
             .catch(error => console.error("Error:", error));
         });
+
     </script>
 </body>
 </html>
